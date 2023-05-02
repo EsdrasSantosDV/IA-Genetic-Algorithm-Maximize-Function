@@ -7,6 +7,20 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import random as rd
 from matplotlib.figure import Figure
+import math
+
+#FUNCAO
+def f(x, y):
+    return 21.5 + x*math.sin(4*math.pi*x) + y*math.sin(20*math.pi*y)
+
+#INTERVALO
+# Definição dos intervalos para x e y
+x_interval = (-3.1, 12.1)
+y_interval = (4.1, 5.8)
+
+
+
+
 def submit_button_event():
     tamanho_cromossomo = int(form_tamanho_cromossomo.get())
     tamanho_da_populacao = int(form_tamanho_da_populacao.get())
