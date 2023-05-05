@@ -26,33 +26,12 @@ def submit_button_event():
     probabilidade_de_cruzamento = float(form_probabilidade_de_cruzamento.get())
     mutacao_probabilidade = float(form_mutacao_probabilidade.get())
     quantidade_geracoes = int(form_quantidade_geracoes.get())
-    if check_var.get():
-        tamanho_torneio = int(form_tamanho_torneio.get())
-    else:
-        tamanho_torneio = None
-
-    tamanho_elitismo = int(form_tamanho_elitismo.get())
-    tamanho_elitismo = int(form_tamanho_elitismo.get())  # Adicione esta linha
-
-    # Salvar o selection_method e crossover_type
-    selection_method = "tournament" if check_var.get() else "roulette"
-    crossover_type = crossover_var.get()
-
-    # Exibir logs dos valores inseridos
-    print("Tamanho do cromossomo:", tamanho_cromossomo)
-    print("Tamanho da população:", tamanho_da_populacao)
-    print("Probabilidade de cruzamento:", probabilidade_de_cruzamento)
-    print("Probabilidade de mutação:", mutacao_probabilidade)
-    print("Quantidade de gerações:", quantidade_geracoes)
-    print("Tamanho do torneio:", tamanho_torneio)
-    print("Tamanho do elitismo:", tamanho_elitismo)
-    print("Selection method:", selection_method)
-    print("Crossover type:", crossover_type)
+    tamanho_torneio=int(form_tamanho_torneio.get())
 
 def toggle_torneio_visibility():
     if check_var.get():
-        label_tamanho_torneio.place(x=500, y=200)
-        form_tamanho_torneio.place(x=650, y=200)
+        label_tamanho_torneio.place(x=100, y=200)
+        form_tamanho_torneio.place(x=325, y=200)
     else:
         label_tamanho_torneio.place_forget()
         form_tamanho_torneio.place_forget()
@@ -60,7 +39,7 @@ def toggle_torneio_visibility():
 
 def on_crossover_selection():
     selected_crossover = crossover_var.get()
-
+    print("Selected crossover:", selected_crossover)
 
 
 window = Tk()
@@ -75,8 +54,6 @@ label_probabilidade_de_cruzamento = tkinter.Label(window, text="Probabilidade de
 label_mutacao_probabilidade = tkinter.Label(window, text="Probabilidade de Mutação:",background="gray")
 label_quantidade_geracoes = tkinter.Label(window, text="Quantidade de Geracoes:",background="gray")
 label_tamanho_torneio =  tkinter.Label(window, text="Tamanho do Torneio:",background="gray")
-label_tamanho_elitismo = tkinter.Label(window, text="Tamanho do Elitismo:", background="gray")
-form_tamanho_elitismo = tkinter.Entry()
 #INPUTS
 form_tamanho_cromossomo=tkinter.Entry()
 form_tamanho_da_populacao=tkinter.Entry()
@@ -97,8 +74,7 @@ label_quantidade_geracoes.place(x=100,y=140)
 form_quantidade_geracoes.place(x=325,y=140)
 label_mutacao_probabilidade.place(x=100,y=170)
 form_mutacao_probabilidade.place(x=325,y=170)
-label_tamanho_elitismo.place(x=100, y=200)
-form_tamanho_elitismo.place(x=325, y=200)
+
 #CHECKBOX
 check_var = tkinter.BooleanVar()
 check_torneio = tkinter.Checkbutton(window, text="Torneio", variable=check_var, command=toggle_torneio_visibility, background="gray")
